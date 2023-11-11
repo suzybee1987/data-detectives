@@ -1,13 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { Topics } from "./Topics";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Data Detectives</header>
+    <div className="App App-header">
+      <header>Data Detectives</header>
+      <Topics />
     </div>
   );
-}
+};
 
 export default App;

@@ -6,7 +6,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
 
     const formatPostCode = (str: string) => {
       if (inputElement) {
-        str = str.toUpperCase();
+        str = str.toLowerCase();
         str = str.replace(/[^0-9a-z]/gi, "");
         const parts = str.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
 

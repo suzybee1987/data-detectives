@@ -17,7 +17,7 @@ Azure CloudDB
 As a user I want to be able to find a house
 As a user I want the house to be x,y,z
 As a user I want this to be mobile first
-As a user I want the UI to be clear
+As a user I want the UI to be easy to use
 
 ### Walkthrough
 

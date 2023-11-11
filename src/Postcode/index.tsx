@@ -6,7 +6,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
 
     const formatPostCode = (str: string) => {
       if (inputElement) {
-        str = str.toLowerCase();
+        str = str.toUpperCase();
         str = str.replace(/[^0-9a-z]/gi, "");
         const parts = str.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
 
@@ -37,5 +37,10 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
     };
   }, []); // empty dependency array ensures the effect runs once after initial render
 
-  return <input id="input" type="text" />;
+  return (
+    <div className="my-3">
+      <h2 className="small">Please enter your preferred post code:</h2>
+      <input id="input" type="text" />
+    </div>
+  );
 };

@@ -1,15 +1,21 @@
 import React from "react";
 import "./App.css";
-import { Topics } from "./Topics";
+import Topics from "./Topics";
 import { PostCodeFinder } from "./Postcode";
+import { Context } from "./Context";
 
 const App = () => {
   return (
-    <div className="App App-header">
-      <header>Data Detectives</header>
-      <PostCodeFinder />
-      <Topics />
-    </div>
+    <Context>
+      <div className="App">
+        <h1 className="my-3">Data Detectives</h1>
+        <main className="App-header my-3">
+          {/* postcode could be removed for authenticated journey in app */}
+          <PostCodeFinder />
+          <Topics />
+        </main>
+      </div>
+    </Context>
   );
 };
 

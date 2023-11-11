@@ -3,6 +3,7 @@ import "./App.css";
 import Topics from "./Topics";
 import { PostCodeFinder } from "./Postcode";
 import { Context } from "./Context";
+import { SelectedTopics } from "./SelectedTopics";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           {/* postcode could be removed for authenticated journey in app */}
           <PostCodeFinder />
           <Topics />
+          <SelectedTopics />
         </main>
       </div>
     </Context>

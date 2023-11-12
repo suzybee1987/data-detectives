@@ -1,8 +1,15 @@
-import React, { createContext, useContext, ReactNode, FC } from "react";
 import { useTopicsContext } from "../Context";
 
 export const SelectedTopics = () => {
-  const { selectedTopics, toggleTopic } = useTopicsContext();
+  const { selectedTopics } = useTopicsContext();
 
-  return <h3>You have selected: {selectedTopics.join(", ")}</h3>;
+  return (
+    <>
+      {selectedTopics.length > 0 && (
+        <h3 className="my-3">
+          You have selected: <br /> {selectedTopics.join(", ")}
+        </h3>
+      )}
+    </>
+  );
 };

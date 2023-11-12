@@ -38,7 +38,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
   }, []); // empty dependency array ensures the effect runs once after initial render
 
   return (
-    <div className="my-3">
+    <div className="m-3">
       <h2 className="small">Please enter your preferred post code:</h2>
       <input id="input" type="text" />
     </div>

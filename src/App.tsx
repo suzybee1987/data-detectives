@@ -4,17 +4,19 @@ import Topics from "./Topics";
 import { PostCodeFinder } from "./Postcode";
 import { Context } from "./Context";
 import { SelectedTopics } from "./SelectedTopics";
+import { Continue } from "./Continue";
 
 const App = () => {
   return (
     <Context>
       <div className="App">
-        <h1 className="my-3">Data Detectives</h1>
+        <h1 className="mt-3">Data Detectives</h1>
         <main className="App-header my-3">
           {/* postcode could be removed for authenticated journey in app */}
           <PostCodeFinder />
           <Topics />
           <SelectedTopics />
+          <Continue />
         </main>
       </div>
     </Context>

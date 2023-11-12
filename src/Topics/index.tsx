@@ -1,47 +1,41 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState, useMemo } from "react";
 import { useTopicsContext } from "../Context";
 
 const Topics: FC = (): React.ReactElement => {
   const { selectedTopics, toggleTopic } = useTopicsContext();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const topicsAvailable: string[] = useMemo(
+    () => [
+      "apple",
+      "banana",
+      "cactus",
+      "dolphin",
+      "elephant",
+      "flamingo",
+      "giraffe",
+      "hurricane",
+      "iguana",
+      "jazz",
+      "kiwi",
+      "leopard",
+    ],
+    []
+  );
+
   const handleClick = (topic: string): void => {
-    // Check if the topic is already in the selectedTopics array
     const isTopicSelected = selectedTopics.includes(topic);
 
-    // Check if adding the topic would exceed the limit (5 topics)
     if (!isTopicSelected && selectedTopics.length >= 5) {
-      // Set the error message
       setErrorMessage("Cannot add more than 5 topics");
       return;
     }
 
-    // Clear the error message
     setErrorMessage(null);
-
-    // Toggle the topic based on its current state
     toggleTopic(topic);
   };
 
-  const topicsAvailable: string[] = [
-    "apple",
-    "banana",
-    "cactus",
-    "dolphin",
-    "elephant",
-    "flamingo",
-    "giraffe",
-    "hurricane",
-    "iguana",
-    "jazz",
-    "kiwi",
-    "leopard",
-  ];
-
   useEffect(() => {
-    // This effect is triggered whenever selectedTopics changes
-
-    // Loop through topicsAvailable and update classNames
     topicsAvailable.forEach((topic: string) => {
       const button = document.getElementById(topic);
       if (button) {
@@ -57,7 +51,7 @@ const Topics: FC = (): React.ReactElement => {
     });
 
     // Additional actions can be performed here if needed
-  }, [selectedTopics]);
+  }, [selectedTopics, topicsAvailable]);
 
   return (
     <div>
@@ -65,7 +59,11 @@ const Topics: FC = (): React.ReactElement => {
       {topicsAvailable.map((topic: string) => (
         <button
           type="button"
-          className={`btn m-1 btn-outline-success`}
+          className={`btn m-1 ${
+            selectedTopics.includes(topic)
+              ? "btn-success"
+              : "btn-outline-success"
+          }`}
           key={topic}
           onClick={() => handleClick(topic)}
           id={topic}

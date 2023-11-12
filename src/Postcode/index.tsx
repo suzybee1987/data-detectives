@@ -21,7 +21,13 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
     const handleBlur = () => {
       const inputVal = inputElement?.value;
       const formattedPostCode = formatPostCode(inputVal);
-      // Do something with the formatted post code if needed
+
+      // Set the formatted postcode as the input value
+      if (inputElement) {
+        inputElement.value = formattedPostCode || ""; // ensure the value is not null
+      }
+
+      // Do something with the formatted postcode if needed
       console.log(formattedPostCode);
     };
 
@@ -40,7 +46,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
   return (
     <div className="m-3">
       <h2 className="small">Please enter your preferred post code:</h2>
-      <input id="input" type="text" />
+      <input id="input" type="text" required />
     </div>
   );
 };

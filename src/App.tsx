@@ -5,6 +5,8 @@ import { PostCodeFinder } from "./Postcode";
 import { Context } from "./Context";
 import { SelectedTopics } from "./SelectedTopics";
 import { Continue } from "./Continue";
+import { Map } from "./Map";
+import ContactForm from "./ContactForm";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Topics />
           <SelectedTopics />
           <Continue />
+          <Map />
+          <ContactForm />
         </main>
       </div>
     </Context>

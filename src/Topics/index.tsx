@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState, useMemo } from "react";
 import { useTopicsContext } from "../Context";
+import { Button } from "../Button/";
 
 const Topics: FC = (): React.ReactElement => {
   const { selectedTopics, toggleTopic } = useTopicsContext();
@@ -35,41 +36,17 @@ const Topics: FC = (): React.ReactElement => {
     toggleTopic(topic);
   };
 
-  useEffect(() => {
-    topicsAvailable.forEach((topic: string) => {
-      const button = document.getElementById(topic);
-      if (button) {
-        const isSelected = selectedTopics.includes(topic);
-        if (isSelected) {
-          button.classList.add("btn-success");
-          button.classList.remove("btn-outline-success");
-        } else {
-          button.classList.add("btn-outline-success");
-          button.classList.remove("btn-success");
-        }
-      }
-    });
-
-    // Additional actions can be performed here if needed
-  }, [selectedTopics, topicsAvailable]);
-
   return (
     <div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
+
       {topicsAvailable.map((topic: string) => (
-        <button
-          type="button"
-          className={`btn m-1 ${
-            selectedTopics.includes(topic)
-              ? "btn-success"
-              : "btn-outline-success"
-          }`}
+        <Button
           key={topic}
-          onClick={() => handleClick(topic)}
-          id={topic}
-        >
-          {topic}
-        </button>
+          topic={topic}
+          handleClick={handleClick}
+          selectedTopics={selectedTopics.length}
+        />
       ))}
     </div>
   );

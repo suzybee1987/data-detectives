@@ -20,7 +20,6 @@ const Topics: FC = (): React.ReactElement => {
   return (
     <div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <h1>{selectedButton}</h1>
 
       {customerTypeArray.map((topic: string) => (
         <Button

@@ -4,7 +4,7 @@ module.exports = function (app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'https://get-hackdata.azurewebsites.net',
+            target: 'https://ambitious-stone-02fd47403.4.azurestaticapps.net',
             changeOrigin: true,
         })
     );

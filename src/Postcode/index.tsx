@@ -11,7 +11,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
         const apiUrl =
           "/api/get-inspection-data?code=7dmx_V2A6ZgyAlXiy1lRFZ415KNL1UsYj1b1QnNjcGydAzFuPdygKQ==&&columnName=UPRN&&columnValue=10012142007";
 
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, { mode: "no-cors" });
 
         if (!response.ok) {
           throw new Error("Network response was not ok");

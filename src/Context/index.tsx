@@ -21,8 +21,8 @@ export const Context: FC<{ children: ReactNode }> = ({ children }) => {
   const toggleCustomer = useCallback(
     (customerType: string): void => {
       // Check if the topic is already in the selectedCustomerType array
-      const isCustomerTypeSelected =
-        selectedCustomerType.includes(customerType);
+      // const isCustomerTypeSelected =
+      //   selectedCustomerType.includes(customerType);
 
       // Toggle the topic based on its current state
       setSelectedCustomerType(customerType);

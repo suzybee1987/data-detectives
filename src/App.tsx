@@ -3,6 +3,7 @@ import "./App.css";
 import Topics from "./Topics";
 import { PostCodeFinder } from "./Postcode";
 import { SelectedButtonProvider } from "./Context/buttonContext";
+import { Result } from "./Result";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           {/* postcode could be removed for authenticated journey in app */}
           <PostCodeFinder />
           <Topics />
+          <Result />
         </main>
       </div>
     </SelectedButtonProvider>

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 
 export const PostCodeFinder: FC = (): React.ReactElement => {
-  const [inspectionData, setInspectionData] = useState(null);
+  const [inspectionData, setInspectionData] = useState<any>(null);
   const BASE_URL = "https://ambitious-stone-02fd47403.4.azurestaticapps.net/";
   useEffect(() => {
     const inputElement = document.getElementById("input") as HTMLInputElement;
@@ -44,9 +44,20 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
       <input id="input" type="text" required />
       {inspectionData ? (
         // Render your data here
-        <pre className="text-white">
-          {JSON.stringify(inspectionData, null, 2)}
-        </pre>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <table className="table text-white">
+            <tr style={{ padding: "20px" }}>
+              <th scope="col">Last Inspection Date </th>
+              <th scope="col">Overall Property Condition </th>
+              <th scope="col">Suitable as mortgage security? </th>
+            </tr>
+            <tr>
+              <td>{inspectionData[0]["Assesment Date"]}</td>
+              <td>{inspectionData[0]["Overall Condition"]}</td>
+              <td>{inspectionData[0]["Suitable as mortgage security"]}</td>
+            </tr>
+          </table>
+        </div>
       ) : (
         // Loading state or error handling
         <p>Loading...</p>

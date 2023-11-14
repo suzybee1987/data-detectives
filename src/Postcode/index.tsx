@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 
 export const PostCodeFinder: FC = (): React.ReactElement => {
   const [inspectionData, setInspectionData] = useState(null);
-
+  const BASE_URL = "https://ambitious-stone-02fd47403.4.azurestaticapps.net/";
   useEffect(() => {
     const inputElement = document.getElementById("input") as HTMLInputElement;
 

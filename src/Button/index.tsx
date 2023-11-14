@@ -3,21 +3,17 @@ import { useState } from "react";
 type Props = {
   topic: string;
   handleClick: (topic: string) => void;
-  selectedTopics: number;
+  selected: boolean;
 };
 
-export const Button = ({ topic, handleClick, selectedTopics }: Props) => {
-  const [selected, setSelected] = useState(false);
-  const onClickFunctions = () => {
-    selectedTopics !== 5 ? setSelected(!selected) : setSelected(false);
-    handleClick(topic);
-  };
+export const Button = ({ topic, handleClick, selected }: Props) => {
+  const onClickFunctions = () => {};
   return (
     <button
       type="button"
       key={topic}
       className={`btn m-1 ${selected ? "btn-success" : "btn-outline-success"}`}
-      onClick={() => onClickFunctions()}
+      onClick={() => handleClick(topic)}
     >
       {`${topic}`}
     </button>

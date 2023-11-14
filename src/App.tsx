@@ -11,10 +11,15 @@ const App = () => {
       <div className="App">
         <h1 className="mt-3">Data Detectives</h1>
         <main className="App-header my-3">
+          <p>
+            Use this tool to get an initial indication of wheather you property
+            is likely to be suitable for a Halifax/Loyds/BM mortgage and the
+            products available (e.g Green Mortgage) additional information can
+            also be selected
+          </p>
           {/* postcode could be removed for authenticated journey in app */}
-          <PostCodeFinder />
           <Topics />
-          <Result />
+          <PostCodeFinder />
         </main>
       </div>
     </SelectedButtonProvider>

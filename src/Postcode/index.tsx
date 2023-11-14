@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 
 export const PostCodeFinder: FC = (): React.ReactElement => {
   const [inspectionData, setInspectionData] = useState(null);
-
+  const BASE_URL = "https://get-hackdata.azurewebsites.net";
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -11,7 +11,7 @@ export const PostCodeFinder: FC = (): React.ReactElement => {
         const apiUrl =
           "/api/get-inspection-data?code=7dmx_V2A6ZgyAlXiy1lRFZ415KNL1UsYj1b1QnNjcGydAzFuPdygKQ==&&columnName=UPRN&&columnValue=10012142007";
 
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${BASE_URL}${apiUrl}`);
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
